@@ -9,7 +9,7 @@
     <title>Film Finder</title>
 </head>
 
-
+<!--Please feel free to change my horrendous banner-->
 <header>
     <div class="hero">
         <div class="title">
@@ -20,23 +20,43 @@
 
 <body>
     <main>
+        <!--This div will contain all of the pages content-->
+        <!--It is hiding in the top left corner-->
         <div class="content-container">
-            
-            <div class="">
-                <form class="movie-search">
-                    <input type="text" placeholder="Enter movie title here...">
-                    <button id="find-movie" type="submit">Find my film!</button>
-                </form>
-            </div>
-            
-            <div class="insert-posters">
 
+            <!--Contains the search bar and will be populated with movie posters after search-->
+            <!--Will need its own row-->
+            <div class="poster-container">
+                
+                <!--Contains the search bar, the submit button, and will fold past searches below-->
+                <!--I am not 100% sure if the submit button is properly connected to the text box-->
+                <div class="">
+                <div class="search-bar">
+                    <form class="movie-search">
+                        <input type="text" placeholder="Enter movie title here...">
+                        <button id="find-movie" type="submit">Find my film!</button>
+                    </form>
+                </div>
+
+                <!--Will house dynamically created links to former searches-->
+                <div class="recent-searches">
+
+                </div>
+            
+                <!--We can insert three movie posters here-->
+                <!--You could put borders on empty containers to size them up to how you want-->
+                <!--We can delete the content in here and repopulate with the new content-->
+                <div class="insert-content">
+
+                </div>
             </div>
             
-            <div class="description">
-                <p class="description-text">
-                    Interested in seeing a movie? Find all the details you need right here!
-                </p>
+                <!--Will need its own row-->
+                <div class="description">
+                    <p class="description-text">
+                        Interested in seeing a movie? Find all the details you need right here!
+                    </p>
+                </div>
             </div>
         </div>
     </main>

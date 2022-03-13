@@ -5,23 +5,28 @@
 
 .hero {
     background-image: url('../images/popcorn-img.png');
-    background-color: rgba(238, 43, 43, .7);
+    background-color: rgba(0, 0, 0, .6);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: 100%;
     height: 300px;
     position: fixed;
-    border-bottom: solid 5px black;
+    border-bottom: solid 3px black;
 }
 
 h1 {
     z-index: 100;
     text-align: center;
     font-size: 86px;
+    color: rgb(189, 35, 35);
 }
 
 body {
-    background-color: gray;
+    background-color: rgb(51, 48, 48);
+}
+
+.description-text {
+    color: white;
 }
 
