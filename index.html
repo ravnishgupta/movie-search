@@ -20,17 +20,14 @@
 
 <body>
     <main>
-        <!--This div will contain all of the pages content-->
-        <!--It is hiding in the top left corner-->
+        <!--This div will contain all of the content between the header and description-->
+        <!--The content is hiding in the top left corner-->
+        <!--Will need its own row-->
         <div class="content-container">
 
-            <!--Contains the search bar and will be populated with movie posters after search-->
-            <!--Will need its own row-->
-            <div class="poster-container">
-                
-                <!--Contains the search bar, the submit button, and will fold past searches below-->
-                <!--I am not 100% sure if the submit button is properly connected to the text box-->
-                <div class="">
+            <!--Contains the search bar, the submit button, and will hold past searches below-->
+            <!--I am not 100% sure if the submit button is properly connected to the text box-->
+            <div class="search-container">
                 <div class="search-bar">
                     <form class="movie-search">
                         <input type="text" placeholder="Enter movie title here...">
@@ -39,25 +36,28 @@
                 </div>
 
                 <!--Will house dynamically created links to former searches-->
+                <!--Add list items to ul-->
                 <div class="recent-searches">
+                    <ul class="insert-recents">
 
-                </div>
-            
-                <!--We can insert three movie posters here-->
-                <!--You could put borders on empty containers to size them up to how you want-->
-                <!--We can delete the content in here and repopulate with the new content-->
-                <div class="insert-content">
-
+                    </ul>
                 </div>
             </div>
-            
-                <!--Will need its own row-->
-                <div class="description">
-                    <p class="description-text">
-                        Interested in seeing a movie? Find all the details you need right here!
-                    </p>
-                </div>
+
+            <!--We can insert three movie posters here-->
+            <!--You could put borders on empty containers to size them up to how you want-->
+            <!--We can delete the content in here and repopulate with the new content-->
+            <!--Idk whether or not to use a ul for the posters, so if that's the easier route we can add that-->
+            <div class="poster-container">
+
             </div>
+        </div>
+            
+        <!--Will need its own row-->
+        <div class="description">
+            <p class="description-text">
+                Interested in seeing a movie? Find all the details you need right here!
+            </p>
         </div>
     </main>
 
