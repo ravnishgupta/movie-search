@@ -10,6 +10,8 @@ var inputEl = document.querySelector('#movie-title');
 var formSubmitHandler = function(event) {
   event.preventDefault();
 
+  insertPosterEl 
+
   var movieName = inputEl.value.trim();
 
   if (movieName) {
@@ -45,7 +47,7 @@ var getOMDBMovie = function(movieName) {
 
 var displayPosters = function(data) {
 
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 3; i++) {
 
     var movieTitle = data.Search[i].Title;
     var moviePoster = data.Search[i].Poster;
@@ -62,7 +64,7 @@ var displayPosters = function(data) {
 
     if (moviePoster != "N/A") {
       var cardImgEl = document.createElement("img");
-      cardImgEl.classList = ("card-img-top");
+      cardImgEl.classList = ("card-image");
       cardImgEl.setAttribute("src", moviePoster);
       cardEl.appendChild(cardImgEl);
     }
@@ -72,11 +74,11 @@ var displayPosters = function(data) {
     }
 
     var cardBodyEl = document.createElement("div");
-    cardBodyEl.classList = ("card-body");
+    cardBodyEl.classList = ("card-content");
     cardEl.appendChild(cardBodyEl);
 
     var cardTitleEl = document.createElement("h5")
-    cardTitleEl.classList = ("card-title");
+    cardTitleEl.classList = ("card-footer");
     cardTitleEl.setAttribute("style", "text-align: center;");
     cardTitleEl.textContent = (movieTitle);
     cardBodyEl.appendChild(cardTitleEl);
@@ -86,15 +88,24 @@ var displayPosters = function(data) {
 
 formEl.addEventListener('submit', formSubmitHandler);
 
+{/* <div class="pure-form" style="width:33.33333%">
+<div class="card">
+    <img class="card-image" src="https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg" />
+    <div class="card-content">
+        <h5 class="card-footer" style="text-align: center;">Movie Title 1</h5>
+    </div>
+</div>
+</div>
 
-                // <div class="pure-form" style="width:33.33333%">
-                //     <div class="card">
-                //         <img class="card-img-top" src="https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg" />
-                //         <div class="card-body">
-                //             <h5 class="card-title" style="text-align: center;">Movie Title 1</h5>
-                //         </div>
-                //     </div>
-                // </div>
+
+                <div class="pure-form" style="width:33.33333%">
+                    <div class="card">
+                        <img class="card-img-top" src="https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg" />
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align: center;">Movie Title 1</h5>
+                        </div>
+                    </div>
+                </div> */}
 
 
 // function getLatLong(city) {
