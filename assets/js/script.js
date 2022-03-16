@@ -52,39 +52,40 @@ var displayPosters = function(data) {
     var movieTitle = data.Search[i].Title;
     var moviePoster = data.Search[i].Poster;
 
-    var cardContainerEl = document.createElement("div");
-    cardContainerEl.classList = ("pure-form");
-    cardContainerEl.setAttribute("id", i);
-    cardContainerEl.setAttribute("style", "width:33.33333%");
-    insertPosterEl.appendChild(cardContainerEl);
-
-    var cardEl = document.createElement("div");
-    cardEl.classList = ("card");
-    cardContainerEl.appendChild(cardEl);
-
     if (moviePoster != "N/A") {
+      var cardContainerEl = document.createElement("div");
+      cardContainerEl.classList = ("pure-form");
+      cardContainerEl.setAttribute("id", i);
+      cardContainerEl.setAttribute("style", "width:33.33333%");
+      insertPosterEl.appendChild(cardContainerEl);
+  
+      var cardEl = document.createElement("div");
+      cardEl.classList = ("card");
+      cardContainerEl.appendChild(cardEl);
+
       var cardImgEl = document.createElement("img");
       cardImgEl.classList = ("card-image");
       cardImgEl.setAttribute("src", moviePoster);
       cardEl.appendChild(cardImgEl);
+
+      var cardBodyEl = document.createElement("div");
+      cardBodyEl.classList = ("card-content");
+      cardEl.appendChild(cardBodyEl);
+  
+      var cardTitleEl = document.createElement("h5")
+      cardTitleEl.classList = ("card-footer");
+      cardTitleEl.setAttribute("style", "text-align: center;");
+      cardTitleEl.textContent = (movieTitle);
+      cardBodyEl.appendChild(cardTitleEl);
     }
 
     else {
       break;
     }
-
-    var cardBodyEl = document.createElement("div");
-    cardBodyEl.classList = ("card-content");
-    cardEl.appendChild(cardBodyEl);
-
-    var cardTitleEl = document.createElement("h5")
-    cardTitleEl.classList = ("card-footer");
-    cardTitleEl.setAttribute("style", "text-align: center;");
-    cardTitleEl.textContent = (movieTitle);
-    cardBodyEl.appendChild(cardTitleEl);
   }
-
 };
+
+
 
 formEl.addEventListener('submit', formSubmitHandler);
 
