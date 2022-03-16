@@ -87,7 +87,36 @@ var displayPosters = function(data) {
 
 
 
+
 formEl.addEventListener('submit', formSubmitHandler);
+
+
+function saveSearch(search) {
+  var tmp = ''
+  var existing = [];
+  if (localStorage.getItem('movieSearch')) {
+    existing = localStorage.getItem('movieSearch').split(';');
+    tmp = localStorage.getItem('movieSearch');
+  }
+  if (existing.indexOf(search) === -1){
+    tmp += search + ";";
+    localStorage.setItem('movieSearch', tmp);
+  }
+}
+
+function showRecentSearches() {
+  var myDiv = $("#recentSearches")
+  var existing = [];
+  if (localStorage.getItem('movieSearch')) {
+    existing = localStorage.getItem('movieSearch').split(';');
+    for (var i=0; i<existing.length; i++) {
+      var t =  document.createElement("h6");
+      t.innerText = existing[i];
+      myDiv.append(t) = existing[i]
+    }
+  }
+}
+
 
 /* <div class="pure-form" style="width:33.33333%">
 <div class="card">
