@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Film Finder</title>
 </head>
@@ -12,36 +12,45 @@
 <body>
 
 <header>
-    <div class="banner">
-        <div class="banner-head">
+    <div class="header">
+        <div class="hero-head">
             <h1 class="header">Film Finder</h1>
         </div>
     </div>
 </header>
-    <div class="pure-g" id="main">
-        <div class="content-container">
-            
-            <div class="pure-form">
-                <form class="movie-search">
-                    <input type="text" placeholder="Enter movie title here...">
-                    <br>
-                    <button id="find-movie" type="submit" class="pure-button">Find my film!</button>
-                </form>
-            </div>
-            
-            <div class="insert-posters">
-                <br>
-            </div>
-                <br>
-            <div class="pure-g">
-                <br>
-                <p class="pure-u-1">
-                   <span>Interested in seeing a movie? Find all the details you need right here!</span> 
-                </p>
-            </div>
-        </div>
-    </div>
+<div>
+    <div class="" id="main"> 
 
+         <div class="field has-addons">
+                <div class="control">
+                  <input class="input" type="text" placeholder="Enter movie title here...">
+                </div>
+                <div class="control">
+                  <a class="button is-info is-danger">
+                    Find my film!
+                  </a>
+                </div>
+              </div>
+            <div class="columns is-mobile">
+                <div class="column is-one-quarter">
+                  Movie Poster 1
+                </div>
+                <div class="column is-one-quarter">
+                  Movie Poster 2 
+                </div>
+                <div class="column is-one-quarter">
+                  Movie Poster 3
+                </div>   
+            </div>
+            <div class="insert-posters">
+
+            </div>
+            <div class="tile is-child box">
+                <p class="title">Welcome!</p>
+                <p>Interested in seeing a movie? Find all the details you need right here!</p>
+              </div>
+    </div>
+</div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./assets/js/script.js"></script>
 </body>
