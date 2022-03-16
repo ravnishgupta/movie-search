@@ -52,43 +52,44 @@ var displayPosters = function(data) {
     var movieTitle = data.Search[i].Title;
     var moviePoster = data.Search[i].Poster;
 
-    var cardContainerEl = document.createElement("div");
-    cardContainerEl.classList = ("pure-form");
-    cardContainerEl.setAttribute("id", i);
-    cardContainerEl.setAttribute("style", "width:33.33333%");
-    insertPosterEl.appendChild(cardContainerEl);
-
-    var cardEl = document.createElement("div");
-    cardEl.classList = ("card");
-    cardContainerEl.appendChild(cardEl);
-
     if (moviePoster != "N/A") {
+      var cardContainerEl = document.createElement("div");
+      cardContainerEl.classList = ("pure-form");
+      cardContainerEl.setAttribute("id", i);
+      cardContainerEl.setAttribute("style", "width:33.33333%");
+      insertPosterEl.appendChild(cardContainerEl);
+  
+      var cardEl = document.createElement("div");
+      cardEl.classList = ("card");
+      cardContainerEl.appendChild(cardEl);
+
       var cardImgEl = document.createElement("img");
       cardImgEl.classList = ("card-image");
       cardImgEl.setAttribute("src", moviePoster);
       cardEl.appendChild(cardImgEl);
+
+      var cardBodyEl = document.createElement("div");
+      cardBodyEl.classList = ("card-content");
+      cardEl.appendChild(cardBodyEl);
+  
+      var cardTitleEl = document.createElement("h5")
+      cardTitleEl.classList = ("card-footer");
+      cardTitleEl.setAttribute("style", "text-align: center;");
+      cardTitleEl.textContent = (movieTitle);
+      cardBodyEl.appendChild(cardTitleEl);
     }
 
     else {
       break;
     }
-
-    var cardBodyEl = document.createElement("div");
-    cardBodyEl.classList = ("card-content");
-    cardEl.appendChild(cardBodyEl);
-
-    var cardTitleEl = document.createElement("h5")
-    cardTitleEl.classList = ("card-footer");
-    cardTitleEl.setAttribute("style", "text-align: center;");
-    cardTitleEl.textContent = (movieTitle);
-    cardBodyEl.appendChild(cardTitleEl);
   }
-
 };
+
+
 
 formEl.addEventListener('submit', formSubmitHandler);
 
-{/* <div class="pure-form" style="width:33.33333%">
+/* <div class="pure-form" style="width:33.33333%">
 <div class="card">
     <img class="card-image" src="https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg" />
     <div class="card-content">
@@ -105,7 +106,7 @@ formEl.addEventListener('submit', formSubmitHandler);
                             <h5 class="card-title" style="text-align: center;">Movie Title 1</h5>
                         </div>
                     </div>
-                </div> */}
+                </div> */
 
 
 // function getLatLong(city) {
