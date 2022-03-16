@@ -88,7 +88,7 @@ var displayPosters = function(data) {
 
 formEl.addEventListener('submit', formSubmitHandler);
 
-{/* <div class="pure-form" style="width:33.33333%">
+/* <div class="pure-form" style="width:33.33333%">
 <div class="card">
     <img class="card-image" src="https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg" />
     <div class="card-content">
@@ -105,7 +105,7 @@ formEl.addEventListener('submit', formSubmitHandler);
                             <h5 class="card-title" style="text-align: center;">Movie Title 1</h5>
                         </div>
                     </div>
-                </div> */}
+                </div> */
 
 
 // function getLatLong(city) {
