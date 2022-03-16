@@ -1,11 +1,12 @@
 var omdbURL = 'http://www.omdbapi.com/';
 var imdbURL = '';
 var ravAPIK = '95233c90';
+var imdbKey = 'k_06r6ebsu';
 
 var insertPosterEl = document.querySelector('.insert-posters');
 
 function getOMDBMovie() {
-    var movieName = 'Avengers' //to be replaced with the text in the input box @Natalie need the name of the input box
+    var movieName = 'avengers' //to be replaced with the text in the input box @Natalie need the name of the input box
     var apiURL = omdbURL + '?s=' + movieName + '&apikey=' + ravAPIK; //https://www.omdbapi.com/?s=ave*&apikey=95233c90
     fetch(apiURL).then(function(response) {
       if (response.ok) {
@@ -24,7 +25,7 @@ function getOMDBMovie() {
 
 var displayPosters = function(data) {
 
-  for (var i = 0; i < 3; i++) {
+  for (var i = 0; i < 10; i++) {
 
     var movieTitle = data.Search[i].Title;
     var moviePoster = data.Search[i].Poster;
@@ -47,10 +48,7 @@ var displayPosters = function(data) {
     }
 
     else {
-      var noImgEl = document.createElement("img");
-      noImgEl.classList = ("card-img-top");
-      noImgEl.setAttribute("src", "https://www.midamericafordmeet.com/wp-content/uploads/2016/07/NoImageAvailable.jpg");
-      cardEl.appendChild(noImgEl);
+      break;
     }
 
     var cardBodyEl = document.createElement("div");
