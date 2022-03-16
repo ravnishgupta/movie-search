@@ -84,11 +84,37 @@ var displayPosters = function(data) {
     cardBodyEl.appendChild(cardTitleEl);
   }
 
-};
+}
 
 formEl.addEventListener('submit', formSubmitHandler);
 
-{/* <div class="pure-form" style="width:33.33333%">
+function saveSearch(search) {
+  var tmp = ''
+  var existing = [];
+  if (localStorage.getItem('movieSearch')) {
+    existing = localStorage.getItem('movieSearch').split(';');
+    tmp = localStorage.getItem('movieSearch');
+  }
+  if (existing.indexOf(search) === -1){
+    tmp += search + ";";
+    localStorage.setItem('movieSearch', tmp);
+  }
+}
+
+function showRecentSearches() {
+  var myDiv = $("#recentSearches")
+  var existing = [];
+  if (localStorage.getItem('movieSearch')) {
+    existing = localStorage.getItem('movieSearch').split(';');
+    for (var i=0; i<existing.length; i++) {
+      var t =  document.createElement("h6");
+      t.innerText = existing[i];
+      myDiv.append(t) = existing[i]
+    }
+  }
+}
+
+/* <div class="pure-form" style="width:33.33333%">
 <div class="card">
     <img class="card-image" src="https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg" />
     <div class="card-content">
@@ -105,7 +131,7 @@ formEl.addEventListener('submit', formSubmitHandler);
                             <h5 class="card-title" style="text-align: center;">Movie Title 1</h5>
                         </div>
                     </div>
-                </div> */}
+                </div> */
 
 
 // function getLatLong(city) {

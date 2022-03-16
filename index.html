@@ -23,18 +23,6 @@
 </header>
     <div class="row" id="main">
         <div class="col-3">
-            <!-- <div class=“field has-addons”>
-                <div class=“control”>
-                  <input class=“input” type=“text">
-                </div>
-                <div class=“control”>
-                  <a class=“button is-info is-danger”>
-                    Find my film!
-                  </a>
-                </div>
-              </div> -->
-
-
             <div class="pure-form">
                 <form class="movie-search control">
                     <input id="movie-title" type="text" placeholder="Enter movie title here...">
@@ -47,7 +35,8 @@
                    <span>Interested in seeing a movie? Find all the details you need right here!</span> 
                 </p>
             </div>
-
+            <div id="recentSearches">
+            </div>
         </div>
         <div class="col-9">
             <div class="insert-posters row">
@@ -86,5 +75,6 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./assets/js/script.js"></script>
+<script type="text/javascript">showRecentSearches()</script>
 </body>
 </html>
