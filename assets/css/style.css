@@ -51,6 +51,10 @@
 }
 
 
+.content-container {
+   padding: auto;
+}
+
 
 /* in case you're not back and I had to leave, I left your browser on the 
 main bulma page so you can see if the documentation is a bit simpler to follow
