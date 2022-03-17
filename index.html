@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
@@ -23,18 +23,7 @@
 </header>
     <div class="row" id="main">
         <div class="col-3">
-            <!-- <div class=“field has-addons”>
-                <div class=“control”>
-                  <input class=“input” type=“text">
-                </div>
-                <div class=“control”>
-                  <a class=“button is-info is-danger”>
-                    Find my film!
-                  </a>
-                </div>
-              </div> -->
-
-
+    
             <div class="pure-form">
                 <form class="movie-search control">
                     <input class="input bulma-placeholder-mixin" id="movie-title" type="text" placeholder="Enter movie title here...">
@@ -92,12 +81,34 @@
                 <!--Posters are inserted here-->
             </div>
             <div class="row" style="border-style: solid">
-                <div class="card">
-                    Title:
-                    Cast:
-                    Rating:
+                <div class="poster col-4">
+                    <img class="poster" src="./assets/images/download.jpg">
+    
             <!-- create ID for each individual element which needs the values to be populated -->
                 </div>
+                <div class="col-8 movie-info">
+                    <div class="row">
+                        <div class="col-6">
+                            <p>
+                               Title
+                               <br>
+                               Runtime
+                            </p>    
+                        </div>
+                <div class="col-6">
+                     <img class="trailer" src="./assets/images/images.jpeg">
+                </div>
+                    </div>
+                <div class="row plot-review">
+                    <p class="row">
+                        Plot
+                    </p>
+                    <p class="row reviews">
+                        Reviews
+                    </p>
+                </div>
+                </div>
+                
 
 
             </div>

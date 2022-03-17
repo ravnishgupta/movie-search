@@ -5,7 +5,7 @@
 
 .header {
     background-image: url('../images/popcorn-img.png');
-    background-color: rgba(238, 43, 43, .7);
+    background-color: rgba(231, 230, 247, 0.7);
     background-repeat: no-repeat; 
     background-position: center;
     background-size: cover; 
@@ -50,7 +50,7 @@
 
 
 body {
-    background-color: rgb(235, 223, 209);
+    background-color: rgba(231, 230, 247, 0.7);
 }
 .content {
     display: inline-block;
@@ -60,6 +60,4 @@ body {
     font-style: bold;
     max-width: 80%;
  
-   
-
 }
