@@ -11,7 +11,6 @@ var formSubmitHandler = function(event) {
   event.preventDefault();
 
   var movieName = inputEl.value.trim();
-  saveSearch();
 
   if (movieName) {
     getOMDBMovie(movieName);
