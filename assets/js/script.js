@@ -10,12 +10,10 @@ var inputEl = document.querySelector('#movie-title');
 var formSubmitHandler = function(event) {
   event.preventDefault();
 
-  insertPosterEl 
-
   var movieName = inputEl.value.trim();
 
   if (movieName) {
-      getOMDBMovie(movieName);
+    getOMDBMovie(movieName);
   }
   else {
       alert('Please enter a valid movie title.');
@@ -24,15 +22,19 @@ var formSubmitHandler = function(event) {
 
 var getOMDBMovie = function(movieName) {
 
-    //var movieName = 'Avengers'; //to be replaced with the text in the input box @Natalie need the name of the input box
-    var apiURL = omdbURL + '?s=' + movieName + '&apikey=' + ravAPIK; //https://www.omdbapi.com/?s=ave*&apikey=95233c90
+    var apiURL = omdbURL + '?s=' + movieName + '&apikey=' + ravAPIK;
     
     fetch(apiURL).then(function(response) {
       if (response.ok) {
         console.log(response);
         response.json().then(function(data) {
             console.log(data);
+            if (data.Response === "True") {
             displayPosters(data);
+            }
+            else {
+              alert("Please enter a valid movie title.")
+            }
         });
       }
       else { 
@@ -46,6 +48,8 @@ var getOMDBMovie = function(movieName) {
 
 
 var displayPosters = function(data) {
+
+  insertPosterEl.innerHTML = "";
 
   for (var i = 0; i < 3; i++) {
 
