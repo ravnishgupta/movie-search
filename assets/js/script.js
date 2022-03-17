@@ -10,12 +10,10 @@ var inputEl = document.querySelector('#movie-title');
 var formSubmitHandler = function(event) {
   event.preventDefault();
 
-  insertPosterEl 
-
   var movieName = inputEl.value.trim();
 
   if (movieName) {
-      getOMDBMovie(movieName);
+    getOMDBMovie(movieName);
   }
   else {
       alert('Please enter a valid movie title.');
@@ -24,15 +22,19 @@ var formSubmitHandler = function(event) {
 
 var getOMDBMovie = function(movieName) {
 
-    //var movieName = 'Avengers'; //to be replaced with the text in the input box @Natalie need the name of the input box
-    var apiURL = omdbURL + '?s=' + movieName + '&apikey=' + ravAPIK; //https://www.omdbapi.com/?s=ave*&apikey=95233c90
+    var apiURL = omdbURL + '?s=' + movieName + '&apikey=' + ravAPIK;
     
     fetch(apiURL).then(function(response) {
       if (response.ok) {
         console.log(response);
         response.json().then(function(data) {
             console.log(data);
+            if (data.Response === "True") {
             displayPosters(data);
+            }
+            else {
+              alert("Please enter a valid movie title.")
+            }
         });
       }
       else { 
@@ -47,48 +49,80 @@ var getOMDBMovie = function(movieName) {
 
 var displayPosters = function(data) {
 
+  insertPosterEl.innerHTML = "";
+
   for (var i = 0; i < 3; i++) {
 
     var movieTitle = data.Search[i].Title;
     var moviePoster = data.Search[i].Poster;
 
-    var cardContainerEl = document.createElement("div");
-    cardContainerEl.classList = ("pure-form");
-    cardContainerEl.setAttribute("id", i);
-    cardContainerEl.setAttribute("style", "width:33.33333%");
-    insertPosterEl.appendChild(cardContainerEl);
-
-    var cardEl = document.createElement("div");
-    cardEl.classList = ("card");
-    cardContainerEl.appendChild(cardEl);
-
     if (moviePoster != "N/A") {
+      var cardContainerEl = document.createElement("div");
+      cardContainerEl.classList = ("pure-form");
+      cardContainerEl.setAttribute("id", i);
+      cardContainerEl.setAttribute("style", "width:33.33333%");
+      insertPosterEl.appendChild(cardContainerEl);
+  
+      var cardEl = document.createElement("div");
+      cardEl.classList = ("card");
+      cardContainerEl.appendChild(cardEl);
+
       var cardImgEl = document.createElement("img");
       cardImgEl.classList = ("card-image");
       cardImgEl.setAttribute("src", moviePoster);
       cardEl.appendChild(cardImgEl);
+
+      var cardBodyEl = document.createElement("div");
+      cardBodyEl.classList = ("card-content");
+      cardEl.appendChild(cardBodyEl);
+  
+      var cardTitleEl = document.createElement("h5")
+      cardTitleEl.classList = ("card-footer");
+      cardTitleEl.setAttribute("style", "text-align: center;");
+      cardTitleEl.textContent = (movieTitle);
+      cardBodyEl.appendChild(cardTitleEl);
     }
 
     else {
       break;
     }
-
-    var cardBodyEl = document.createElement("div");
-    cardBodyEl.classList = ("card-content");
-    cardEl.appendChild(cardBodyEl);
-
-    var cardTitleEl = document.createElement("h5")
-    cardTitleEl.classList = ("card-footer");
-    cardTitleEl.setAttribute("style", "text-align: center;");
-    cardTitleEl.textContent = (movieTitle);
-    cardBodyEl.appendChild(cardTitleEl);
   }
-
 };
+
+
+
 
 formEl.addEventListener('submit', formSubmitHandler);
 
-{/* <div class="pure-form" style="width:33.33333%">
+
+function saveSearch(search) {
+  var tmp = ''
+  var existing = [];
+  if (localStorage.getItem('movieSearch')) {
+    existing = localStorage.getItem('movieSearch').split(';');
+    tmp = localStorage.getItem('movieSearch');
+  }
+  if (existing.indexOf(search) === -1){
+    tmp += search + ";";
+    localStorage.setItem('movieSearch', tmp);
+  }
+}
+
+function showRecentSearches() {
+  var myDiv = $("#recentSearches")
+  var existing = [];
+  if (localStorage.getItem('movieSearch')) {
+    existing = localStorage.getItem('movieSearch').split(';');
+    for (var i=0; i<existing.length; i++) {
+      var t =  document.createElement("h6");
+      t.innerText = existing[i];
+      myDiv.append(t) = existing[i]
+    }
+  }
+}
+
+
+/* <div class="pure-form" style="width:33.33333%">
 <div class="card">
     <img class="card-image" src="https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg" />
     <div class="card-content">
@@ -105,7 +139,7 @@ formEl.addEventListener('submit', formSubmitHandler);
                             <h5 class="card-title" style="text-align: center;">Movie Title 1</h5>
                         </div>
                     </div>
-                </div> */}
+                </div> */
 
 
 // function getLatLong(city) {
