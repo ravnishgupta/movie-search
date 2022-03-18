@@ -21,7 +21,9 @@
         </div>
     </div>
 </header>
-    <div class="row" id="main">
+
+<main class="container-fluid d-flex">
+    <div class="row">
         <div class="col-3">
             <div class="pure-form">
                 <form class="movie-search control">
@@ -29,69 +31,27 @@
                     <button id="find-movie" type="submit" class="pure-button">Find my film!</button>
                 </form>
             </div>
-            <br>
-             <div class="content"> 
-                 <div class="bulma-clearfix-mixin"> 
-                    <figure class="image is-1by2">
-                        <img style="float: left;" src="./assets/images/images.jpeg">
-                    </figure>
+
+            <div class="content"> 
+                <div class="bulma-clearfix-mixin"> 
+                        <img style="float: left;" src="./assets/images/download.jpg">
                     <p>Welcome To Film Finder!</p>
-                  </div>
+                </div>
+                <div class="description">
                   <p>Simply search for a movie title to find ratings, trailers, and more!</p>
+                </div>
             </div> 
-            <!-- <div class="tile is-ancestor">
-                <article class="tile is-parent notification is-info">
-                  <p class="title">Welcome to Film Finder!</p>
-                  <p class="subtitle">Simply search for a movie title to find ratings, trailers, and more!</p>
-                  <figure class="image is-4by3">
-                    <img src="./assets/images/images.jpeg">
-                  </figure>
-                </article>
-              </div> -->
-
-
         </div>
         <div class="col-9">
             <div class="insert-posters row">
-                <!--Posters are inserted here-->
-            </div>
-            <div class="row" style="border-style: solid">
-                <div class="poster col-4">
-                    <img class="poster" src="./assets/images/download.jpg">
-    
-            <!-- create ID for each individual element which needs the values to be populated -->
-                </div>
-                <div class="col-8 movie-info">
-                    <div class="row">
-                        <div class="col-6">
-                            <p>
-                               Title
-                               <br>
-                               Runtime
-                            </p>    
-                        </div>
-                <div class="col-6">
-                     <img class="trailer" src="./assets/images/images.jpeg">
-                </div>
-                    </div>
-                <div class="row plot-review">
-                    <p class="row">
-                        Plot
-                    </p>
-                    <p class="row reviews">
-                        Reviews
-                    </p>
-                </div>
-                </div>
                 
-
-
             </div>
         </div>
     </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="./assets/js/script.js"></script>
-<script type="text/javascript">showRecentSearches()</script>
+</main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script type="text/javascript">showRecentSearches()</script>
 </body>
 </html>
