@@ -1,6 +1,6 @@
-var omdbURL = 'http://www.omdbapi.com/';
+var omdbURL = 'https://www.omdbapi.com/';
 var imdbURL = 'https://imdb-api.com/en/API/Title/';
-var ravAPIK = '95233c90';
+var omdbAPIK = '95233c90';
 var imdbKey = 'k_06r6ebsu';
 
 var insertPosterEl = document.querySelector('.insert-posters');
@@ -14,15 +14,20 @@ var formSubmitHandler = function(event) {
 
   if (movieName) {
     getOMDBMovie(movieName);
+    saveSearch(movieName);
+    showRecentSearches()
   }
+
   else {
       alert('Please enter a valid movie title.');
+      inputEl.value= '';
+      inputEl.focus();
   }
 };
 
 var getOMDBMovie = function(movieName) {
 
-    var apiURL = omdbURL + '?s=' + movieName + '&apikey=' + ravAPIK;
+    var apiURL = omdbURL + '?s=' + movieName + '&apikey=' + omdbAPIK;
     
     fetch(apiURL).then(function(response) {
       if (response.ok) {
@@ -33,7 +38,9 @@ var getOMDBMovie = function(movieName) {
             displayPosters(data);
             }
             else {
-              alert("Please enter a valid movie title.")
+              alert("Please enter a valid movie title.");
+              inputEl.value = '';
+              inputEl.focus();
             }
         });
       }
@@ -239,10 +246,6 @@ var displayMovieInfo = function(data) {
 };
 
 
-
-
-
-
 insertPosterEl.addEventListener("click", moviePosterHandler);
 
 formEl.addEventListener('submit', formSubmitHandler);
@@ -262,14 +265,24 @@ function saveSearch(search) {
 }
 
 function showRecentSearches() {
-  var myDiv = $("#recentSearches")
+  
+  var myDiv = document.getElementById("recentSearches");
   var existing = [];
   if (localStorage.getItem('movieSearch')) {
     existing = localStorage.getItem('movieSearch').split(';');
     for (var i=0; i<existing.length; i++) {
-      var t =  document.createElement("h6");
-      t.innerText = existing[i];
-      myDiv.append(t) = existing[i]
+      if (existing[i].length > 0) {
+
+        var a =  document.createElement("a");
+        var link = document.createTextNode(existing[i]);
+
+        a.appendChild(link);
+        a.title = existing[i];
+        a.href = "test.html"
+
+        myDiv.appendChild(a) ;
+        myDiv.innerHTML += '<br>'
+      }
     }
   }
 }
