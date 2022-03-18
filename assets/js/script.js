@@ -266,12 +266,15 @@ function saveSearch(search) {
 
 function showRecentSearches() {
   
-  var myDiv = document.getElementById("recentSearches");
+  var ulEl = document.getElementById("recents");
+  ulEl.innerHTML = ''
   var existing = [];
   if (localStorage.getItem('movieSearch')) {
     existing = localStorage.getItem('movieSearch').split(';');
     for (var i=0; i<existing.length; i++) {
       if (existing[i].length > 0) {
+        var liEl = document.createElement("li");
+        //debugger;
 
         var a =  document.createElement("a");
         var link = document.createTextNode(existing[i]);
@@ -279,9 +282,10 @@ function showRecentSearches() {
         a.appendChild(link);
         a.title = existing[i];
         a.href = "test.html"
-
-        myDiv.appendChild(a) ;
-        myDiv.innerHTML += '<br>'
+    
+        liEl.appendChild(a);
+        ulEl.appendChild(liEl);
+        
       }
     }
   }
