@@ -7,6 +7,7 @@ var insertPosterEl = document.querySelector('.insert-posters');
 var formEl = document.querySelector('.movie-search');
 var inputEl = document.querySelector('#movie-title');
 
+
 var formSubmitHandler = function(event) {
   event.preventDefault();
 
@@ -19,15 +20,13 @@ var formSubmitHandler = function(event) {
   }
 
   else {
-      alert('Please enter a valid movie title.');
-      inputEl.value= '';
-      inputEl.focus();
+      showModal('Please enter a valid movie title.');
   }
 };
 
 var getOMDBMovie = function(movieName) {
 
-    var apiURL = omdbURL + '?s=' + movieName + '&apikey=' + omdbAPIK;
+    var apiURL = omdbURL + '?s=' + movieName + '&apikey='  + omdbAPIK;
     
     fetch(apiURL).then(function(response) {
       if (response.ok) {
@@ -38,18 +37,18 @@ var getOMDBMovie = function(movieName) {
             displayPosters(data);
             }
             else {
-              alert("Please enter a valid movie title.");
+              showModal("Please enter a valid movie title.");
               inputEl.value = '';
-              inputEl.focus();
+              
             }
         });
       }
       else { 
-        alert("Error: " + response.statusText);
+        showModal("Error: " + response.statusText);
       }
     })
     .catch(function(error) {
-        alert("Unable to connect to OMDB. Please try again later.");
+      showModal("Unable to connect to OMDB. Please try again later.");
     });
 };
 
@@ -120,11 +119,11 @@ var fetchMovieInfo = function(imdbId) {
         });
       }
       else { 
-        alert("Error: " + response.statusText);
+        showModal("Error: " + response.statusText);
       }
     })
     .catch(function(error) {
-        alert("Unable to connect to OMDB. Please try again later.");
+      showModal("Unable to connect to OMDB. Please try again later.");
     });
 };
 
@@ -289,4 +288,24 @@ function showRecentSearches() {
       }
     }
   }
+}
+
+//Modal stuff
+
+
+
+function showModal(message) {
+  var myModal = document.getElementById("page-modal");
+  var modalBody = document.getElementById("modalBody")
+  modalBody.innerText = message
+  myModal.style.display='block';
+
+  inputEl.focus();
+  
+}
+
+function closeModal() {
+  var myModal = document.getElementById("page-modal");
+  myModal.style.display = "none";
+  inputEl.focus();
 }
