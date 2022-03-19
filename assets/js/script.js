@@ -30,9 +30,9 @@ var getOMDBMovie = function(movieName) {
     
     fetch(apiURL).then(function(response) {
       if (response.ok) {
-        console.log(response);
+        //console.log(response);
         response.json().then(function(data) {
-            console.log(data);
+            //console.log(data);
             if (data.Response === "True") {
             displayPosters(data);
             }
@@ -112,9 +112,9 @@ var fetchMovieInfo = function(imdbId) {
     
     fetch(apiURL).then(function(response) {
       if (response.ok) {
-        console.log(response);
+        //console.log(response);
         response.json().then(function(data) {
-          console.log(data);
+         // console.log(data);
           displayMovieInfo(data);
         });
       }
@@ -273,14 +273,13 @@ function showRecentSearches() {
     for (var i=0; i<existing.length; i++) {
       if (existing[i].length > 0) {
         var liEl = document.createElement("li");
-        //debugger;
 
         var a =  document.createElement("a");
         var link = document.createTextNode(existing[i]);
 
         a.appendChild(link);
         a.title = existing[i];
-        a.href = "test.html"
+        a.href = "javascript: search('" + a.title + "');"
     
         liEl.appendChild(a);
         ulEl.appendChild(liEl);
@@ -291,21 +290,28 @@ function showRecentSearches() {
 }
 
 //Modal stuff
-
-
-
 function showModal(message) {
   var myModal = document.getElementById("page-modal");
   var modalBody = document.getElementById("modalBody")
   modalBody.innerText = message
   myModal.style.display='block';
-
   inputEl.focus();
-  
 }
 
 function closeModal() {
   var myModal = document.getElementById("page-modal");
   myModal.style.display = "none";
   inputEl.focus();
+}
+
+function search(value) {
+  getOMDBMovie(value);
+}
+
+window.onclick = function(event) {
+  var myModal = document.getElementById("page-modal");
+  if (event.target.className == 'modal-background') {
+    myModal.style.display = "none";
+    inputEl.focus();
+  }
 }
