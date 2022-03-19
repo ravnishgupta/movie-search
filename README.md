@@ -51,7 +51,7 @@ THEN I should be able to come back and see old searches
 ![Image](./assets/images/film-finder2.png "Search Results")
 ![Image](./assets/images/film-finder3.png "Movie Details")
 
-## Directions for Future Decelopment
+## Directions for Future Development
 - Improve the UI 
 - Advanced search / filter capability, e.g. ratings, cast, genre
 - Content availability venue(s) 
